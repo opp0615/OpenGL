@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(0,0);
-	glutCreateWindow("유재석");
+	glutCreateWindow("121536 유재석");
 	glutDisplayFunc(mydisplay);
 	init();
 	//input event control
@@ -44,14 +44,20 @@ void mydisplay()
 {
 	glClear(GL_COLOR_BUFFER_BIT); 
 
-	
-	glBegin(GL_POLYGON);
-	glColor4f(1.0, 0.0, 0.0 ,1.0); 
+	glColor4f(0.0,1.0,1.0,1.0);
+	glBegin(GL_QUADS);
 	glVertex2f(-0.5, -0.5); 
-	glColor4f(0.0, 1.0, 0.0 ,1.0); 
 	glVertex2f(0, -0.5);
-	glColor4f(0.0, 0.0, 1.0 ,1.0); 
 	glVertex2f(0, 0.5);
+	glVertex2f(-0.5, 0.5);
+	glEnd();
+
+	glColor4f(0.0,0.0,0.0,1.0);
+	glBegin(GL_LINE_LOOP);
+		glVertex2f(-0.5, -0.5); 
+		glVertex2f(0, -0.5);
+		glVertex2f(0, 0.5);
+		glVertex2f(-0.5, 0.5);
 	glEnd();
 
 	glutSwapBuffers();
