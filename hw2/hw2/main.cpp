@@ -5,12 +5,18 @@
 
 const GLfloat orthoWidth = 1.0;
 const GLfloat orthoHeight = 1.0;
+const int redBoxWidth = 55;
+const int redBoxHeight = 55;
 
 void init();
 void mydisplay();
 void keyboradControl(unsigned char key, int x, int y);
 void mouseControl(int button, int state, int x, int y);
 void mouseMotionControl(int x, int y);
+
+int mouseCurButton = 0;
+int mouseCurPositionX = 0;
+int mouseCurPositionY = 0;
 
 GLfloat PayPhoneColor[4] = {1.0, 1.0, 1.0, 1.0};
 GLfloat ParkColor[4] = {1.0, 1.0, 1.0, 1.0};
@@ -31,7 +37,7 @@ int main(int argc, char** argv)
 	glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(1000,700);
 	glutInitWindowPosition(0,0);
-	glutCreateWindow("유재석");
+	glutCreateWindow("121536 유재석");
 	glutDisplayFunc(mydisplay);
 	init();
 	//input event control
@@ -286,7 +292,7 @@ void mydisplay()
 	glVertex2d(1.71-orthoWidth,-1.0-0.257+orthoHeight);	
 	glEnd();
 	glBegin(GL_LINE_STRIP);
-	
+
 	glVertex2d(1.71-orthoWidth,-1.0-0.257+orthoHeight);
 	glVertex2d(1.71+0.26-orthoWidth,-1.0-0.257+orthoHeight);
 	glVertex2d(1.71+0.26-orthoWidth,-1.0+orthoHeight);
@@ -379,7 +385,7 @@ void mydisplay()
 	glVertex2d(1.76+0.11-orthoWidth,-1.786+orthoHeight);
 	glEnd();
 
-	
+
 
 
 	glutSwapBuffers();
@@ -387,13 +393,587 @@ void mydisplay()
 
 void keyboradControl(unsigned char key, int x, int y)
 {
+	switch (key)
+	{
+	case '1':
+		PayPhoneColor[0] = 0.0;
+		PayPhoneColor[1] = 1.0;
+		PayPhoneColor[2] = 1.0;
 
+		for(int i=0;i<3;i++)
+		{
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '2':
+		ParkColor[0] = 0.0;
+		ParkColor[1] = 1.0;
+		ParkColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '3':
+		PostOfficeColor[0] = 0.0;
+		PostOfficeColor[1] = 1.0;
+		PostOfficeColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '4':
+		PoliceStationColor[0] = 0.0;
+		PoliceStationColor[1] = 1.0;
+		PoliceStationColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '5':
+		LibraryColor[0] = 0.0;
+		LibraryColor[1] = 1.0;
+		LibraryColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '6':
+		ApartmentsColor[0] = 0.0;
+		ApartmentsColor[1] = 1.0;
+		ApartmentsColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '7':
+		SchoolColor[0] = 0.0;
+		SchoolColor[1] = 1.0;
+		SchoolColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '8':
+		BankColor[0] = 0.0;
+		BankColor[1] = 1.0;
+		BankColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '9':
+		ShopColor[0] = 0.0;
+		ShopColor[1] = 1.0;
+		ShopColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case '0':
+		SupermarketColor[0] = 0.0;
+		SupermarketColor[1] = 1.0;
+		SupermarketColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			CoffeShopColor[i] 	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+	case 'e':
+		CoffeShopColor[0] = 0.0;
+		CoffeShopColor[1] = 1.0;
+		CoffeShopColor[2] = 1.0;
+
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+		}
+		glutPostRedisplay();
+		break;
+
+	case 'c':
+		for(int i=0;i<3;i++)
+		{
+			PayPhoneColor[i]       =1.0;
+			ParkColor[i]		   =1.0;
+			PostOfficeColor[i] 	   =1.0;
+			PoliceStationColor[i]  =1.0;
+			LibraryColor[i] 	   =1.0;
+			ApartmentsColor[i] 	   =1.0;
+			SchoolColor[i] 		   =1.0;
+			BankColor[i] 		   =1.0;
+			ShopColor[i] 		   =1.0;
+			SupermarketColor[i]	   =1.0;
+			CoffeShopColor[i]      =1.0;
+		}
+		glutPostRedisplay();
+		break;
+
+
+	default:
+		break;
+	}
 }
 void mouseControl(int button, int state, int x, int y)
 {
+	switch (button)
+	{
+	case GLUT_LEFT_BUTTON:
+		if(state == GLUT_DOWN)
+		{
+			mouseCurButton = button;
+			mouseCurPositionX = x;
+			mouseCurPositionY = y;
 
+			if(80 <=x && x<=80+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				PayPhoneColor[0] = 0.0;
+				PayPhoneColor[1] = 1.0;
+				PayPhoneColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+
+			else if(160 <=x && x<=160+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				ParkColor[0] = 0.0;
+				ParkColor[1] = 1.0;
+				ParkColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(240 <=x && x<=240+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				PostOfficeColor[0] = 0.0;
+				PostOfficeColor[1] = 1.0;
+				PostOfficeColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(320 <=x && x<=320+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				PoliceStationColor[0] = 0.0;
+				PoliceStationColor[1] = 1.0;
+				PoliceStationColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(400 <=x && x<=400+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				LibraryColor[0] = 0.0;
+				LibraryColor[1] = 1.0;
+				LibraryColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(480 <=x && x<=480+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				ApartmentsColor[0] = 0.0;
+				ApartmentsColor[1] = 1.0;
+				ApartmentsColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(560 <=x && x<=560+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				SchoolColor[0] = 0.0;
+				SchoolColor[1] = 1.0;
+				SchoolColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(640 <=x && x<=640+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				BankColor[0] = 0.0;
+				BankColor[1] = 1.0;
+				BankColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(720 <=x && x<=720+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				ShopColor[0] = 0.0;
+				ShopColor[1] = 1.0;
+				ShopColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(800 <=x && x<=800+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				SupermarketColor[0] = 0.0;
+				SupermarketColor[1] = 1.0;
+				SupermarketColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					CoffeShopColor[i] 	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+			else if(880 <=x && x<=880+redBoxWidth && 625<=y && y<=625+redBoxHeight)
+			{
+				CoffeShopColor[0] = 0.0;
+				CoffeShopColor[1] = 1.0;
+				CoffeShopColor[2] = 1.0;
+
+				for(int i=0;i<3;i++)
+				{
+					PayPhoneColor[i]       =1.0;
+					ParkColor[i]		   =1.0;
+					PostOfficeColor[i] 	   =1.0;
+					PoliceStationColor[i]  =1.0;
+					LibraryColor[i] 	   =1.0;
+					ApartmentsColor[i] 	   =1.0;
+					SchoolColor[i] 		   =1.0;
+					BankColor[i] 		   =1.0;
+					ShopColor[i] 		   =1.0;
+					SupermarketColor[i]	   =1.0;
+				}
+				glutPostRedisplay();
+			}
+		}
+		break;
+
+
+	case GLUT_RIGHT_BUTTON:
+		if(state==GLUT_DOWN)
+		{
+			mouseCurButton = button;
+			mouseCurPositionX = x;
+			mouseCurPositionY = y;
+		}
+		break;
+	default:
+		break;
+	}
 }
 void mouseMotionControl(int x, int y)
 {
+	if(mouseCurButton == GLUT_RIGHT_BUTTON)
+	{
 
+		int vectorY =0;
+
+		vectorY = (y - mouseCurPositionY);
+
+		if(vectorY >0)//위에서 아래로
+		{
+
+			//짝수번 색 바꿈
+			ParkColor[0]		   =0.0;
+
+			PoliceStationColor[0]  =0.0;
+
+			ApartmentsColor[0] 	   =0.0;
+
+			BankColor[0]           =0.0;
+
+			SupermarketColor[0]	   =0.0;
+
+
+
+			for(int i=0;i<3;i++)//홀수번 색 없앰
+			{
+				PayPhoneColor[i]       =1.0;
+
+				PostOfficeColor[i] 	   =1.0;
+
+				LibraryColor[i] 	   =1.0;
+
+				SchoolColor[i] 		   =1.0;
+
+				ShopColor[i] 		   =1.0;
+
+				CoffeShopColor[i] 	   =1.0;
+			}
+
+			glutPostRedisplay();
+		}
+
+		else//아래에서 위로
+		{
+			//홀수번 색 바꿈
+			PayPhoneColor[0]       =0.0;
+
+			PostOfficeColor[0] 	   =0.0;
+
+			LibraryColor[0] 	   =0.0;
+
+			SchoolColor[0] 		   =0.0;
+
+			ShopColor[0] 		   =0.0;
+
+			CoffeShopColor[0] 	   =0.0;
+
+
+			for(int i=0;i<3;i++)//짝수번 색 없앰
+			{
+				
+				ParkColor[i]		   =1.0;
+				
+				PoliceStationColor[i]  =1.0;
+				
+				ApartmentsColor[i] 	   =1.0;
+				
+				BankColor[i]           =1.0;
+				
+				SupermarketColor[i]	   =1.0;
+				
+			}
+
+			glutPostRedisplay();
+		}
+	}
+	mouseCurPositionX = x;//기준점을 현재 마우스 커서로 변경
 }
