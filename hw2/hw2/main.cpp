@@ -975,5 +975,9 @@ void mouseMotionControl(int x, int y)
 			glutPostRedisplay();
 		}
 	}
+<<<<<<< HEAD
+	mouseCurPositionY = y;//기준점을 현재 마우스 커서로 변경
+=======
 	mouseCurPositionX = x;//기준점을 현재 마우스 커서로 변경
+>>>>>>> origin/master
 }
